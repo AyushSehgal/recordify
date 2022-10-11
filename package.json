@@ -1,15 +1,27 @@
 {
-  "name": "spotify_app",
+  "name": "spotify_connected",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "server": "nodemon index.js",
+    "client": "cd client && npm start",
+    "postinstall": "cd client && npm install"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.1"
+    "axios": "^0.27.2",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "node": "^18.9.1",
+    "nodemon": "^2.0.20",
+    "react-router-dom": "^6.4.1"
+  },
+  "devDependencies": {
+    "concurrently": "^7.4.0"
   }
 }
